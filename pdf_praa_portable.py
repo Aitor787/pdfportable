@@ -488,5 +488,25 @@ def main() -> None:
     root.mainloop()
 
 
+__all__ = [
+    "DependencyMissingError",
+    "require_dependency",
+    "show_error",
+    "ExternalTools",
+    "TOOLS",
+    "SUPPORTED_IMAGE_EXTENSIONS",
+    "SUPPORTED_DOC_EXTENSIONS",
+    "convert_to_pdf",
+    "merge_pdfs",
+    "compress_pdf",
+    "process_all",
+    "ocr_pdf",
+    "SplashScreen",
+    "PDFApp",
+    "check_libreoffice",
+    "main",
+]
+
+
 if __name__ == "__main__":
     main()

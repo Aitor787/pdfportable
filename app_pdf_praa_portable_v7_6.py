@@ -1,14 +1,12 @@
-"""Entry point wrapper for the PDF PRAA Portable GUI.
+"""Wrapper de compatibilidad para la versión histórica del módulo."""
 
-This thin shim exists to keep backwards compatibility with build scripts
-and packaging workflows that expect the legacy ``app_pdf_praa_portable_v7_6``
-module name while delegating the actual implementation to
-``pdf_praa_portable``.
-"""
+from __future__ import annotations
 
-from pdf_praa_portable import *  # noqa: F401,F403 - re-export for compatibility
-from pdf_praa_portable import main
+import pdf_praa_portable as _impl
 
+__all__ = list(getattr(_impl, "__all__", []))
 
-if __name__ == "__main__":  # pragma: no cover - GUI entry point
-    main()
+globals().update({name: getattr(_impl, name) for name in __all__})
+
+if __name__ == "__main__":  # pragma: no cover - punto de entrada de la GUI
+    _impl.main()
